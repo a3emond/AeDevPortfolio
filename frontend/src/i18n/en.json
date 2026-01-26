@@ -1,0 +1,309 @@
+{
+  "nav": {
+    "overview": "Overview",
+    "projects": "Projects",
+    "systems": "Systems",
+    "skills": "Skills",
+    "contact": "Contact"
+  },
+
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Reach out to discuss ideas, architecture, or collaboration.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send message"
+    },
+    "errors": {
+      "name_required": "Name is required",
+      "email_required": "Email is required",
+      "email_invalid": "Invalid email address",
+      "message_required": "Message is required"
+    }
+  },
+
+  "overview": {
+    "title": "Overview",
+    "intro": "Backend-oriented full-stack software developer focused on building reliable systems with clear boundaries, predictable behavior, and long-term maintainability. I design and implement end-to-end applications, with a primary focus on APIs, distributed services, and infrastructure-aware systems where correctness and operational clarity matter.",
+    "sections": {
+      "profile": {
+        "title": "Profile",
+        "text": "I design and implement full-stack applications using C#, Java, SQL, and modern frontend frameworks, with backend architecture, data modeling, and service contracts as the foundation. My work spans API design, distributed workflows, and user-facing interfaces, ensuring that frontend and backend evolve coherently within well-defined system boundaries."
+      },
+      "philosophy": {
+        "title": "Philosophy",
+        "text": "I favor explicit architectures over implicit behavior. Systems should be understandable, observable, and resilient under failure. Clear responsibilities, deterministic flows, and documented constraints matter more to me than rapid feature accumulation."
+      }
+    }
+  },
+
+
+  "projects": {
+    "title": "Projects",
+    "intro": "Selected projects demonstrating architectural reasoning, technical constraints, and end-to-end system design across backend, frontend, and infrastructure layers.",
+    "items": {
+      "alpha": {
+        "title": "Drift — Geo-Ephemeral Platform",
+        "bullets": {
+          "b1": "Distributed system with strict data lifecycle enforcement",
+          "b2": "Presence-based state machine and rule-driven access",
+          "b3": "iOS (SwiftUI), Firebase, .NET backend on Linux"
+        }
+      },
+      "beta": {
+        "title": "Stickyboard — Multi-Platform Collaboration",
+        "bullets": {
+          "b1": "Real-time collaborative full-stack platform",
+          "b2": "Multi-client architecture with synchronized APIs",
+          "b3": "Designed for long-term evolution and extensibility"
+        }
+      },
+      "gamma": {
+        "title": "Pokédex — Modern API-Driven Frontend",
+        "bullets": {
+          "b1": "Vanilla frontend consuming a public REST API",
+          "b2": "Performance-focused, accessible UI",
+          "b3": "No frontend frameworks by design"
+        }
+      }
+    }
+  },
+
+
+
+
+  "systems": {
+    "title": "Systems",
+    "intro": "I design software as layered systems with explicit responsibilities and well-defined boundaries. Each layer is isolated, testable, and constrained by clear contracts to ensure predictability, maintainability, and long-term evolution.",
+    "layers": {
+      "frontend": {
+        "title": "Frontend",
+        "text": "State-driven client responsible for presentation and user interaction. It consumes explicit APIs, avoids business logic, and ensures deterministic navigation and predictable UI behavior."
+      },
+      "backend": {
+        "title": "Backend",
+        "text": "Core system layer owning business rules, data consistency, workflows, and authorization. Services expose predictable APIs, enforce invariants, and coordinate state transitions."
+      },
+      "infrastructure": {
+        "title": "Infrastructure",
+        "text": "Supports the system through reproducible deployments, logging, monitoring, and security. Infrastructure is treated as a first-class concern to ensure reliability and controlled failure modes."
+      }
+    }
+  },
+
+
+  "skills": {
+    "title": "Skills",
+    "intro": "Technologies I actively design and build with.",
+    "dock": {
+      "empty": "Hover or tap a skill to explore."
+    }
+  },
+
+  "assistant": {
+    "label": "Assistant",
+    "title": "Assistant",
+    "description": "This assistant can explain projects, systems, and skills, and guide navigation through the portfolio.",
+    "placeholder": "Ask about projects, systems, or skills…"
+  },
+
+  "project_modals": {
+    "drift": {
+      "title": "Drift",
+      "tagline": "Geo-ephemeral communication platform",
+      "overview": "Drift is a distributed communication platform designed around strict data lifecycle guarantees, where messages are ephemeral by design and enforced server-side.",
+      "architecture": [
+        "Presence-based state machine (active / dying / expired)",
+        "Rule engine enforcing time, location, and one-shot constraints",
+        "Clear separation between client, backend services, and workers"
+      ],
+      "constraints": [
+        "Guaranteed data deletion",
+        "Deterministic system behavior",
+        "Resilience to partial failures"
+      ],
+      "stack": [
+        "SwiftUI",
+        "Firebase",
+        ".NET",
+        "Linux",
+        "REST APIs"
+      ],
+      "links": [
+        { "label": "Live demo", "url": "https://drift.aedev.pro" },
+        { "label": "GitHub", "url": "https://github.com/a3emond/Drift" }
+      ]
+    },
+
+    "stickyboard": {
+      "title": "Stickyboard",
+      "tagline": "Multi-platform collaborative system",
+      "overview": "Stickyboard is a collaborative platform designed to support multiple clients through a shared backend, synchronized APIs, and real-time interactions.",
+      "architecture": [
+        "Client-agnostic backend with shared state model",
+        "Real-time synchronization between users",
+        "Clear frontend / backend / infrastructure boundaries"
+      ],
+      "constraints": [
+        "Consistent shared state",
+        "Scalability across clients",
+        "Long-term maintainability"
+      ],
+      "stack": [
+        "TypeScript",
+        "Web frontend",
+        "Backend APIs",
+        "Real-time communication",
+        "Docker"
+      ],
+      "links": [
+        { "label": "Live demo", "url": "https://stickyboard.aedev.pro" },
+        { "label": "GitHub", "url": "https://github.com/a3emond/stickyboard" }
+      ]
+    },
+
+    "pokedex": {
+      "title": "Pokédex",
+      "tagline": "Framework-free API-driven frontend",
+      "overview": "Pokédex is a modern frontend application built without frameworks to demonstrate clean architecture, performance, and direct API consumption.",
+      "architecture": [
+        "Clear separation between data layer and UI",
+        "Client-side caching and request coordination",
+        "Progressive enhancement and accessibility"
+      ],
+      "constraints": [
+        "No frontend frameworks",
+        "Performance-first rendering",
+        "Clean, maintainable vanilla code"
+      ],
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "REST API"
+      ],
+      "links": [
+        { "label": "Live demo", "url": "https://pokedex.aedev.pro" },
+        { "label": "GitHub", "url": "https://github.com/a3emond/pokedex" }
+      ]
+    }
+  },
+
+  "skills_catalog": {
+    "intro": "Core technical capabilities I actively design and build with. Each skill represents a broader capability rather than a single tool.",
+    "items": [
+      {
+        "id": "backend-architecture",
+        "name": "Backend Architecture",
+        "icon": "/icons/server.svg",
+        "fa": "fa-solid fa-server",
+        "description": "Design of backend systems with clear service boundaries, explicit business rules, data invariants, authorization logic, and predictable workflows. Focused on correctness, maintainability, and long-term evolution.",
+        "covers": ["C#", "Java", "ASP.NET Core", "Spring Boot", "REST", "GraphQL", "WebSocket"],
+        "tags": ["backend", "architecture"]
+      },
+      {
+        "id": "api-design",
+        "name": "API Design",
+        "icon": "/icons/api.svg",
+        "fa": "fa-solid fa-plug",
+        "description": "Design and implementation of REST and GraphQL APIs with explicit contracts, validation, versioning, and documentation. APIs are treated as stable system boundaries.",
+        "covers": ["REST", "GraphQL", "Swagger", "Postman", "API Gateways"],
+        "tags": ["backend", "api"]
+      },
+      {
+        "id": "distributed-systems",
+        "name": "Distributed Systems",
+        "icon": "/icons/network.svg",
+        "fa": "fa-solid fa-diagram-project",
+        "description": "Coordination of state and workflows across distributed services, with attention to consistency, failure handling, and observability.",
+        "covers": ["WebSocket", "Async workflows", "Event-driven systems", "Stripe", "PayPal"],
+        "tags": ["backend", "distributed"]
+      },
+      {
+        "id": "databases",
+        "name": "Databases & Data Modeling",
+        "icon": "/icons/database.svg",
+        "fa": "fa-solid fa-database",
+        "description": "Relational and document databases with emphasis on schema design, indexing strategies, migrations, query optimization, and data integrity.",
+        "covers": ["PostgreSQL", "MySQL", "MSSQL", "MongoDB"],
+        "tags": ["backend", "data"]
+      },
+      {
+        "id": "containers",
+        "name": "Containers & Deployment",
+        "icon": "/icons/docker.svg",
+        "fa": "fa-brands fa-docker",
+        "description": "Containerized services and environments to ensure reproducible builds, consistent deployments, and clear separation between runtime concerns.",
+        "covers": ["Docker", "Docker Compose", "Kubernetes"],
+        "tags": ["infra", "devops"]
+      },
+      {
+        "id": "ci-cd",
+        "name": "CI / CD",
+        "icon": "/icons/pipeline.svg",
+        "fa": "fa-solid fa-code-branch",
+        "description": "Automated build, test, and deployment pipelines with controlled release workflows and environment parity.",
+        "covers": ["GitHub Actions", "CI/CD pipelines"],
+        "tags": ["infra", "automation"]
+      },
+      {
+        "id": "linux-servers",
+        "name": "Linux & Servers",
+        "icon": "/icons/linux.svg",
+        "fa": "fa-brands fa-linux",
+        "description": "Linux-based server environments including process management, networking, reverse proxies, and production troubleshooting.",
+        "covers": ["Linux", "Apache", "Nginx", "Bash", "PowerShell", "SSH"],
+        "tags": ["infra", "systems"]
+      },
+      {
+        "id": "security",
+        "name": "Security & Identity",
+        "icon": "/icons/security.svg",
+        "fa": "fa-solid fa-shield-halved",
+        "description": "Authentication, authorization, identity management, secure coding practices, and system-level security considerations.",
+        "covers": ["OAuth2", "JWT", "IAM", "Encryption", "GDPR", "DevSecOps"],
+        "tags": ["security"]
+      },
+      {
+        "id": "testing",
+        "name": "Testing & Quality",
+        "icon": "/icons/testing.svg",
+        "fa": "fa-solid fa-vial",
+        "description": "Unit, integration, and end-to-end testing with an emphasis on reliability, maintainability, and confidence in system behavior.",
+        "covers": ["xUnit", "NUnit", "JUnit", "Moq", "Cypress"],
+        "tags": ["testing"]
+      },
+      {
+        "id": "tooling",
+        "name": "Developer Tooling",
+        "icon": "/icons/tools.svg",
+        "fa": "fa-solid fa-screwdriver-wrench",
+        "description": "Daily development tooling, version control, debugging, and workflows that support efficient and disciplined software development.",
+        "covers": ["Git", "GitHub", "JetBrains", "VS Code", "Vim"],
+        "tags": ["tooling"]
+      },
+      {
+        "id": "frontend",
+        "name": "Frontend Engineering",
+        "icon": "/icons/frontend.svg",
+        "fa": "fa-solid fa-window-maximize",
+        "description": "State-driven user interfaces built on explicit data flows, accessibility, and clean separation from backend business logic.",
+        "covers": ["Svelte", "React", "Blazor", "Razor Pages", "HTML", "CSS", "JavaScript", "TypeScript", "TailwindCSS"],
+        "tags": ["frontend"]
+      },
+      {
+        "id": "mobile",
+        "name": "Mobile Development",
+        "icon": "/icons/mobile.svg",
+        "fa": "fa-solid fa-mobile-screen",
+        "description": "Native and cross-platform mobile applications designed to integrate cleanly with shared backend services.",
+        "covers": ["Android", "iOS", "SwiftUI", "MAUI", "Flutter"],
+        "tags": ["mobile"]
+      }
+    ]
+  }
+
+
+}

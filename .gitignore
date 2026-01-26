@@ -1,0 +1,121 @@
+############################
+# Global
+############################
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+############################
+# Environment variables
+############################
+
+.env
+.env.*
+!.env.example
+
+############################
+# Node / TypeScript
+############################
+
+node_modules/
+dist/
+build/
+.cache/
+.tmp/
+.temp/
+
+# TS build info
+*.tsbuildinfo
+
+############################
+# Frontend (Vite / Svelte)
+############################
+
+# Vite
+.vite/
+
+# SvelteKit (if ever introduced later)
+.svelte-kit/
+
+############################
+# Backend (Node / Fastify)
+############################
+
+# Compiled output
+backend/dist/
+backend/build/
+
+# Runtime files
+backend/*.pid
+backend/*.seed
+
+############################
+# Docker
+############################
+
+# Docker runtime artifacts
+**/docker-data/
+**/docker-volumes/
+
+# Local overrides
+docker-compose.override.yml
+
+############################
+# Infra / Certificates
+############################
+
+# TLS / certs
+certs/
+*.pem
+*.crt
+*.key
+
+############################
+# IDEs / Editors
+############################
+
+# JetBrains
+.idea/
+*.iml
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+
+# Vim / Neovim
+*.swp
+*.swo
+*~
+.nvim/
+
+############################
+# Coverage / Testing
+############################
+
+coverage/
+.nyc_output/
+
+############################
+# Misc
+############################
+
+# Mac/Linux temp
+*.tmp
+*.bak
+
+# Archive files
+*.zip
+*.tar
+*.tar.gz
+*.rar
+

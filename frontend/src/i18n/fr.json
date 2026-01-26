@@ -1,0 +1,309 @@
+{
+  "nav": {
+    "overview": "Aperçu",
+    "projects": "Projets",
+    "systems": "Systèmes",
+    "skills": "Compétences",
+    "contact": "Contact"
+  },
+
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Contactez-moi pour discuter d’idées, d’architecture ou de collaboration.",
+    "form": {
+      "name": "Nom",
+      "email": "Courriel",
+      "message": "Message",
+      "submit": "Envoyer le message"
+    },
+    "errors": {
+      "name_required": "Le nom est requis",
+      "email_required": "Le courriel est requis",
+      "email_invalid": "Adresse courriel invalide",
+      "message_required": "Le message est requis"
+    }
+  },
+
+  "overview": {
+    "title": "Aperçu",
+    "intro": "Développeur logiciel full-stack orienté backend, axé sur la conception de systèmes fiables avec des frontières claires, un comportement prévisible et une maintenabilité à long terme. Je conçois et implémente des applications end-to-end, avec un focus principal sur les APIs, les distributed services et les systèmes conscients de leur infrastructure, où la correction et la clarté opérationnelle sont essentielles.",
+    "sections": {
+      "profile": {
+        "title": "Profil",
+        "text": "Je conçois et développe des applications full-stack en utilisant C#, Java, SQL et des frameworks frontend modernes, avec l’architecture backend, la modélisation des données et les service contracts comme fondation. Mon travail couvre la conception d’APIs, les workflows distribués et les interfaces utilisateur, en assurant une évolution cohérente du frontend et du backend à l’intérieur de frontières système bien définies."
+      },
+      "philosophy": {
+        "title": "Philosophie",
+        "text": "Je privilégie les architectures explicites plutôt que les comportements implicites. Les systèmes doivent être compréhensibles, observables et résilients face aux défaillances. Des responsabilités claires, des flux déterministes et des contraintes documentées sont, selon moi, plus importants qu’une accumulation rapide de fonctionnalités."
+      }
+    }
+  },
+
+
+  "projects": {
+    "title": "Projets",
+    "intro": "Projets sélectionnés démontrant le raisonnement architectural, les contraintes techniques et la conception de systèmes end-to-end à travers les couches backend, frontend et infrastructure.",
+    "items": {
+      "alpha": {
+        "title": "Drift — Plateforme geo-ephemeral",
+        "bullets": {
+          "b1": "Système distribué avec contrôle strict du data lifecycle",
+          "b2": "State machine basée sur la présence et règles d’accès déterministes",
+          "b3": "iOS (SwiftUI), Firebase, backend .NET sur Linux"
+        }
+      },
+      "beta": {
+        "title": "Stickyboard — Collaboration multi-platform",
+        "bullets": {
+          "b1": "Plateforme collaborative full-stack en temps réel",
+          "b2": "Architecture multi-client avec APIs synchronisées",
+          "b3": "Conçue pour une évolution et une extensibilité à long terme"
+        }
+      },
+      "gamma": {
+        "title": "Pokédex — Frontend moderne orienté API",
+        "bullets": {
+          "b1": "Frontend vanilla consommant une REST API publique",
+          "b2": "Interface performante et accessible",
+          "b3": "Aucun framework frontend par choix architectural"
+        }
+      }
+    }
+  },
+
+
+
+  "systems": {
+    "title": "Systèmes",
+    "intro": "Je conçois des logiciels comme des systèmes en layers avec des responsabilités explicites et des frontières bien définies. Chaque layer est isolée, testable et contrainte par des contracts clairs afin d’assurer la prévisibilité, la maintenabilité et l’évolution à long terme.",
+    "layers": {
+      "frontend": {
+        "title": "Frontend",
+        "text": "Client state-driven responsable de la présentation et des interactions utilisateur. Il consomme des APIs explicites, évite la logique métier et garantit une navigation déterministe ainsi qu’un comportement UI prévisible."
+      },
+      "backend": {
+        "title": "Backend",
+        "text": "Layer central du système, responsable des règles métier, de la cohérence des données, des workflows et de l’autorisation. Les services exposent des APIs prévisibles, appliquent les invariants et orchestrent les transitions d’état."
+      },
+      "infrastructure": {
+        "title": "Infrastructure",
+        "text": "Soutient le système via des déploiements reproductibles, le logging, la surveillance et la sécurité. L’infrastructure est traitée comme un concern de premier ordre afin d’assurer la fiabilité et des failure modes contrôlés."
+      }
+    }
+  },
+
+
+  "skills": {
+    "title": "Compétences",
+    "intro": "Technologies que je conçois et utilise activement.",
+    "dock": {
+      "empty": "Survolez ou touchez une compétence pour explorer."
+    }
+  },
+
+  "assistant": {
+    "label": "Assistant",
+    "title": "Assistant",
+    "description": "Cet assistant peut expliquer les projets, les systèmes et les compétences, et guider la navigation dans le portfolio.",
+    "placeholder": "Posez une question sur les projets, systèmes ou compétences…"
+  },
+
+  "project_modals": {
+    "drift": {
+      "title": "Drift",
+      "tagline": "Plateforme de communication geo-ephemeral",
+      "overview": "Drift est une plateforme de communication distribuée conçue autour de garanties strictes de data lifecycle, où les messages sont éphémères par conception et appliqués côté serveur.",
+      "architecture": [
+        "State machine basée sur la présence (active / dying / expired)",
+        "Rule engine appliquant les contraintes de temps, localisation et one-shot",
+        "Séparation claire entre client, services backend et workers"
+      ],
+      "constraints": [
+        "Suppression garantie des données",
+        "Comportement système déterministe",
+        "Résilience aux défaillances partielles"
+      ],
+      "stack": [
+        "SwiftUI",
+        "Firebase",
+        ".NET",
+        "Linux",
+        "REST APIs"
+      ],
+      "links": [
+        { "label": "Live demo", "url": "https://drift.aedev.pro" },
+        { "label": "GitHub", "url": "https://github.com/a3emond/Drift" }
+      ]
+    },
+
+    "stickyboard": {
+      "title": "Stickyboard",
+      "tagline": "Système collaboratif multi-platform",
+      "overview": "Stickyboard est une plateforme collaborative conçue pour supporter plusieurs clients via un backend partagé, des APIs synchronisées et des interactions temps réel.",
+      "architecture": [
+        "Backend agnostique aux clients avec modèle d’état partagé",
+        "Synchronisation temps réel entre utilisateurs",
+        "Frontières claires entre frontend, backend et infrastructure"
+      ],
+      "constraints": [
+        "Cohérence de l’état partagé",
+        "Scalabilité multi-clients",
+        "Maintenabilité à long terme"
+      ],
+      "stack": [
+        "TypeScript",
+        "Web frontend",
+        "Backend APIs",
+        "Communication temps réel",
+        "Docker"
+      ],
+      "links": [
+        { "label": "Live demo", "url": "https://stickyboard.aedev.pro" },
+        { "label": "GitHub", "url": "https://github.com/a3emond/stickyboard" },
+        { "label": "Backend repo", "url": "https://github.com/a3emond/stickyboard-api" }
+      ]
+    },
+
+    "pokedex": {
+      "title": "Pokédex",
+      "tagline": "Frontend orienté API sans framework",
+      "overview": "Pokédex est une application frontend moderne développée sans framework afin de démontrer une architecture propre, la performance et la consommation directe d’API.",
+      "architecture": [
+        "Séparation claire entre couche données et UI",
+        "Mise en cache côté client et coordination des requêtes",
+        "Progressive enhancement et accessibilité"
+      ],
+      "constraints": [
+        "Aucun framework frontend",
+        "Rendu orienté performance",
+        "Code vanilla propre et maintenable"
+      ],
+      "stack": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "REST API"
+      ],
+      "links": [
+        { "label": "Live demo", "url": "https://pokedex.aedev.pro" },
+        { "label": "GitHub", "url": "https://github.com/a3emond/pokedex" }
+      ]
+    }
+  },
+
+  "skills_catalog": {
+    "intro": "Capacités techniques clés que je conçois et implémente activement. Chaque compétence représente une capacité globale plutôt qu’un simple outil.",
+    "items": [
+      {
+        "id": "backend-architecture",
+        "name": "Architecture Backend",
+        "icon": "/icons/server.svg",
+        "fa": "fa-solid fa-server",
+        "description": "Conception de systèmes backend avec des frontières de services claires, des règles métier explicites, des invariants de données et des workflows prévisibles. L’accent est mis sur la fiabilité et l’évolution à long terme.",
+        "covers": ["C#", "Java", "ASP.NET Core", "Spring Boot", "REST", "GraphQL", "WebSocket"],
+        "tags": ["backend", "architecture"]
+      },
+      {
+        "id": "api-design",
+        "name": "Conception d’APIs",
+        "icon": "/icons/api.svg",
+        "fa": "fa-solid fa-plug",
+        "description": "Conception et implémentation d’APIs REST et GraphQL avec des contracts explicites, de la validation, du versioning et de la documentation.",
+        "covers": ["REST", "GraphQL", "Swagger", "Postman", "API Gateways"],
+        "tags": ["backend", "api"]
+      },
+      {
+        "id": "distributed-systems",
+        "name": "Systèmes distribués",
+        "icon": "/icons/network.svg",
+        "fa": "fa-solid fa-diagram-project",
+        "description": "Coordination de l’état et des workflows à travers des services distribués, avec une attention particulière à la cohérence et à la gestion des défaillances.",
+        "covers": ["WebSocket", "Workflows asynchrones", "Event-driven systems", "Stripe", "PayPal"],
+        "tags": ["backend", "distributed"]
+      },
+      {
+        "id": "databases",
+        "name": "Bases de données & modélisation",
+        "icon": "/icons/database.svg",
+        "fa": "fa-solid fa-database",
+        "description": "Bases de données relationnelles et documentaires, incluant la modélisation, l’indexation, les migrations et l’optimisation des requêtes.",
+        "covers": ["PostgreSQL", "MySQL", "MSSQL", "MongoDB"],
+        "tags": ["backend", "data"]
+      },
+      {
+        "id": "containers",
+        "name": "Containers & déploiement",
+        "icon": "/icons/docker.svg",
+        "fa": "fa-brands fa-docker",
+        "description": "Services containerisés permettant des environnements reproductibles et des déploiements cohérents entre les environnements.",
+        "covers": ["Docker", "Docker Compose", "Kubernetes"],
+        "tags": ["infra", "devops"]
+      },
+      {
+        "id": "ci-cd",
+        "name": "CI / CD",
+        "icon": "/icons/pipeline.svg",
+        "fa": "fa-solid fa-code-branch",
+        "description": "Pipelines automatisés de build, de test et de déploiement avec des workflows de livraison contrôlés.",
+        "covers": ["GitHub Actions", "CI/CD pipelines"],
+        "tags": ["infra", "automation"]
+      },
+      {
+        "id": "linux-servers",
+        "name": "Linux & serveurs",
+        "icon": "/icons/linux.svg",
+        "fa": "fa-brands fa-linux",
+        "description": "Environnements serveurs Linux incluant la gestion des processus, le réseau et le dépannage en production.",
+        "covers": ["Linux", "Apache", "Nginx", "Bash", "PowerShell", "SSH"],
+        "tags": ["infra", "systems"]
+      },
+      {
+        "id": "security",
+        "name": "Sécurité & identité",
+        "icon": "/icons/security.svg",
+        "fa": "fa-solid fa-shield-halved",
+        "description": "Authentification, autorisation, gestion des identités et pratiques de développement sécurisé.",
+        "covers": ["OAuth2", "JWT", "IAM", "Encryption", "GDPR", "DevSecOps"],
+        "tags": ["security"]
+      },
+      {
+        "id": "testing",
+        "name": "Tests & qualité",
+        "icon": "/icons/testing.svg",
+        "fa": "fa-solid fa-vial",
+        "description": "Tests unitaires, d’intégration et end-to-end visant la fiabilité et la confiance dans le comportement du système.",
+        "covers": ["xUnit", "NUnit", "JUnit", "Moq", "Cypress"],
+        "tags": ["testing"]
+      },
+      {
+        "id": "tooling",
+        "name": "Outillage développeur",
+        "icon": "/icons/tools.svg",
+        "fa": "fa-solid fa-screwdriver-wrench",
+        "description": "Outils quotidiens de développement, contrôle de version et workflows favorisant une pratique disciplinée.",
+        "covers": ["Git", "GitHub", "JetBrains", "VS Code", "Vim"],
+        "tags": ["tooling"]
+      },
+      {
+        "id": "frontend",
+        "name": "Frontend Engineering",
+        "icon": "/icons/frontend.svg",
+        "fa": "fa-solid fa-window-maximize",
+        "description": "Interfaces utilisateur state-driven avec séparation claire entre la UI et la logique métier backend.",
+        "covers": ["Svelte", "React", "Blazor", "Razor Pages", "HTML", "CSS", "JavaScript", "TypeScript", "TailwindCSS"],
+        "tags": ["frontend"]
+      },
+      {
+        "id": "mobile",
+        "name": "Développement mobile",
+        "icon": "/icons/mobile.svg",
+        "fa": "fa-solid fa-mobile-screen",
+        "description": "Applications mobiles natives et cross-platform intégrées à des services backend partagés.",
+        "covers": ["Android", "iOS", "SwiftUI", "MAUI", "Flutter"],
+        "tags": ["mobile"]
+      }
+    ]
+  }
+
+
+}
