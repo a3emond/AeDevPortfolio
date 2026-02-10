@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="#ea580c"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <!-- Pipeline line -->
+    <line x1="4" y1="12" x2="20" y2="12"/>
+
+    <!-- Stage 1: Build -->
+    <rect x="4" y="9" width="3" height="6" rx="1"
+          fill="#ea580c"
+          fill-opacity="0.15"/>
+    <circle cx="5.5" cy="12" r="0.6"
+            fill="#ea580c"
+            stroke="none"/>
+
+    <!-- Stage 2: Test -->
+    <rect x="10.5" y="9" width="3" height="6" rx="1"
+          fill="#ea580c"
+          fill-opacity="0.15"/>
+    <path d="M11.5 12l0.8 0.8 1.2-1.6"
+          stroke="#ea580c"
+          fill="none"/>
+
+    <!-- Stage 3: Deploy -->
+    <rect x="17" y="9" width="3" height="6" rx="1"
+          fill="#ea580c"
+          fill-opacity="0.15"/>
+    <polygon points="18.5,11 20,12 18.5,13"
+             fill="#ea580c"
+             stroke="none"/>
+
+    <!-- Flow arrows -->
+    <polyline points="7.5 11 8.5 12 7.5 13"/>
+    <polyline points="14 11 15 12 14 13"/>
+
+</svg>

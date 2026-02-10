@@ -1,4 +1,7 @@
 <script lang="ts">
+
+  import { onMount } from "svelte"
+
   import NavBar from "./components/NavBar.svelte"
   import Footer from "./components/Footer.svelte"
   import Assistant from "./components/Assistant.svelte"
@@ -11,20 +14,87 @@
 
   import { toggleTheme } from "./theme"
 
-  type View = "overview" | "projects" | "systems" | "skills" | "contact"
+  type View =
+          | "overview"
+          | "projects"
+          | "systems"
+          | "skills"
+          | "contact"
+
   let view: View = "overview"
 
+  /* FIX: container must be declared */
+  let container: HTMLElement
+
   function navigate(v: View) {
+
     view = v
+
+    if (!container) return
+
+    const target =
+            container.querySelector(`#${v}`)
+
+    if (target) {
+
+      target.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      })
+
+    }
+
   }
 
   let theme: "dark" | "light" =
-          document.body.dataset.theme === "light" ? "light" : "dark"
+          document.body.dataset.theme === "light"
+                  ? "light"
+                  : "dark"
 
   function onToggleTheme() {
     theme = toggleTheme()
   }
+
+  onMount(() => {
+
+    if (!container) return
+
+    const observer =
+            new IntersectionObserver(
+
+                    (entries) => {
+
+                      for (const entry of entries) {
+
+                        if (entry.isIntersecting) {
+
+                          view =
+                                  entry.target.id as View
+
+                        }
+
+                      }
+
+                    },
+
+                    {
+                      root: container,
+                      threshold: 0.6
+                    }
+
+            )
+
+    container
+            .querySelectorAll(".snap-section")
+            .forEach(el =>
+                    observer.observe(el)
+            )
+
+  })
+
 </script>
+
+
 
 <NavBar
         {view}
@@ -33,16 +103,54 @@
         {onToggleTheme}
 />
 
-<main>
-  <div class="main-content">
-    {#if view === "overview"} <Overview />
-    {:else if view === "projects"} <Projects />
-    {:else if view === "systems"} <Systems />
-    {:else if view === "skills"} <Skills />
-    {:else if view === "contact"} <Contact />
-    {/if}
-  </div>
+
+<main
+        class="snap-container"
+        bind:this={container}
+>
+
+  <section
+          id="overview"
+          class="snap-section"
+  >
+    <Overview />
+  </section>
+
+
+  <section
+          id="projects"
+          class="snap-section"
+  >
+    <Projects />
+  </section>
+
+
+  <section
+          id="systems"
+          class="snap-section"
+  >
+    <Systems />
+  </section>
+
+
+  <section
+          id="skills"
+          class="snap-section"
+  >
+    <Skills />
+  </section>
+
+
+  <section
+          id="contact"
+          class="snap-section"
+  >
+    <Contact />
+  </section>
+
 </main>
 
+
 <Assistant />
+
 <Footer />

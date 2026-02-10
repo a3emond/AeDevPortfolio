@@ -1,0 +1,286 @@
+/* ======================================================
+   ENERGY GRID BACKGROUND SYSTEM
+   ====================================================== */
+
+
+/* ======================================================
+   CORE VARIABLES
+   ====================================================== */
+
+:root {
+
+    --grid-size: 80px;
+
+    /* accent color bridge */
+    --accent-r: 114;
+    --accent-g: 224;
+    --accent-b: 199;
+
+    /* cursor position (updated by JS) */
+    --cursor-x: 0.5;
+    --cursor-y: 0.5;
+
+    /* energy intensities */
+    --energy-primary: 0.28;
+    --energy-secondary: 0.18;
+    --energy-tertiary: 0.12;
+
+    /* grid visibility */
+    --grid-opacity: 0.08;
+
+}
+
+
+/* ======================================================
+   LIGHT THEME OVERRIDES
+   Fully tuned for bright backgrounds
+   ====================================================== */
+
+[data-theme="light"] {
+
+    --accent-r: 72;
+    --accent-g: 168;
+    --accent-b: 142;
+
+    --energy-primary: 0.90;
+    --energy-secondary: 0.28;
+    --energy-tertiary: 0.20;
+
+    --grid-opacity: 0.08;
+
+}
+
+
+/* ======================================================
+   BASE BODY
+   ====================================================== */
+
+body {
+
+    position: relative;
+    overflow-x: hidden;
+    background: var(--bg);
+
+}
+
+
+/* ======================================================
+   STRUCTURAL GRID LAYER
+   Static grid defining the “cracks”
+   ====================================================== */
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+    inset: 0;
+
+    z-index: -3;
+    pointer-events: none;
+
+    background-image:
+
+            linear-gradient(
+                    rgba(var(--accent-r), var(--accent-g), var(--accent-b), var(--grid-opacity)) 1px,
+                    transparent 1px
+            ),
+
+            linear-gradient(
+                    90deg,
+                    rgba(var(--accent-r), var(--accent-g), var(--accent-b), var(--grid-opacity)) 1px,
+                    transparent 1px
+            );
+
+    background-size: var(--grid-size) var(--grid-size);
+
+}
+
+
+/* ======================================================
+   PRIMARY ENERGY FIELD
+   Cursor-reactive glowing field behind cracks
+   ====================================================== */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+    inset: -40%;
+
+    z-index: -2;
+    pointer-events: none;
+
+    background:
+
+            radial-gradient(
+                    700px 700px at
+                    calc(var(--cursor-x) * 100%)
+                    calc(var(--cursor-y) * 100%),
+
+                    rgba(var(--accent-r), var(--accent-g), var(--accent-b), var(--energy-primary)),
+                    transparent 70%
+            ),
+
+            radial-gradient(
+                    900px 900px at
+                    calc((1 - var(--cursor-x)) * 100%)
+                    calc((1 - var(--cursor-y)) * 100%),
+
+                    rgba(var(--accent-r), var(--accent-g), var(--accent-b), var(--energy-secondary)),
+                    transparent 75%
+            ),
+
+            radial-gradient(
+                    1000px 1000px at 50% 120%,
+                    rgba(var(--accent-r), var(--accent-g), var(--accent-b), var(--energy-tertiary)),
+                    transparent 80%
+            );
+
+    filter: blur(18px);
+
+    animation:
+            energyDrift 42s linear infinite,
+            energyPulse 10s ease-in-out infinite alternate;
+
+}
+
+
+/* ======================================================
+   ENERGY MASK
+   Restricts glow to grid lines only
+   ====================================================== */
+
+body::after {
+
+    mask-image:
+            linear-gradient(black 1px, transparent 1px),
+            linear-gradient(90deg, black 1px, transparent 1px);
+
+    mask-size: var(--grid-size) var(--grid-size);
+    mask-composite: intersect;
+
+    -webkit-mask-image:
+            linear-gradient(black 1px, transparent 1px),
+            linear-gradient(90deg, black 1px, transparent 1px);
+
+    -webkit-mask-size: var(--grid-size) var(--grid-size);
+
+}
+
+
+/* ======================================================
+   ENERGY SWEEP LAYER
+   Adds directional movement across grid
+   ====================================================== */
+
+html::before {
+
+    content: "";
+
+    position: fixed;
+    inset: -50%;
+
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+
+            linear-gradient(
+                    115deg,
+                    transparent 40%,
+                    rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.22),
+                    transparent 60%
+            );
+
+    filter: blur(14px);
+
+    animation: energySweep 16s linear infinite;
+
+}
+
+
+/* ======================================================
+   INTERSECTION SPARK SYSTEM
+   Simulates energized grid nodes
+   ====================================================== */
+
+html::after {
+
+    content: "";
+
+    position: fixed;
+    inset: -30%;
+
+    z-index: -1;
+    pointer-events: none;
+
+    background:
+
+            radial-gradient(
+                    circle,
+                    rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.45),
+                    transparent 70%
+            );
+
+    background-size:
+            calc(var(--grid-size) * 6)
+            calc(var(--grid-size) * 6);
+
+    filter: blur(2px);
+
+    animation:
+            sparkShift 26s linear infinite,
+            sparkPulse 7s ease-in-out infinite alternate;
+
+    mask-image:
+            radial-gradient(circle, black 2px, transparent 4px);
+
+    mask-size: var(--grid-size) var(--grid-size);
+
+}
+
+
+/* ======================================================
+   ANIMATIONS
+   ====================================================== */
+
+@keyframes energyDrift {
+
+    0%   { transform: translate(-15%, -10%); }
+    50%  { transform: translate(15%, 10%); }
+    100% { transform: translate(-15%, -10%); }
+
+}
+
+@keyframes energyPulse {
+
+    0%   { opacity: 0.45; }
+    50%  { opacity: 1; }
+    100% { opacity: 0.55; }
+
+}
+
+@keyframes energySweep {
+
+    0%   { transform: translateX(-60%); }
+    100% { transform: translateX(60%); }
+
+}
+
+@keyframes sparkShift {
+
+    0%   { transform: translate(0, 0); }
+    50%  { transform: translate(80px, 40px); }
+    100% { transform: translate(0, 0); }
+
+}
+
+@keyframes sparkPulse {
+
+    0%   { opacity: 0.2; }
+    50%  { opacity: 0.55; }
+    100% { opacity: 0.25; }
+
+}

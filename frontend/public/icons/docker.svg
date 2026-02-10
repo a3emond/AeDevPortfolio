@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="#4f46e5"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <!-- Main container box -->
+    <rect x="4" y="7" width="16" height="10" rx="2"
+          fill="#4f46e5"
+          fill-opacity="0.12"/>
+
+    <!-- Container vertical ribs -->
+    <line x1="7" y1="7" x2="7" y2="17"/>
+    <line x1="10" y1="7" x2="10" y2="17"/>
+    <line x1="13" y1="7" x2="13" y2="17"/>
+    <line x1="16" y1="7" x2="16" y2="17"/>
+
+    <!-- Top container locks -->
+    <rect x="6" y="5" width="2" height="2" rx="0.5"
+          fill="#4f46e5"
+          stroke="none"/>
+    <rect x="16" y="5" width="2" height="2" rx="0.5"
+          fill="#4f46e5"
+          stroke="none"/>
+
+    <!-- Bottom container locks -->
+    <rect x="6" y="17" width="2" height="2" rx="0.5"
+          fill="#4f46e5"
+          stroke="none"/>
+    <rect x="16" y="17" width="2" height="2" rx="0.5"
+          fill="#4f46e5"
+          stroke="none"/>
+
+</svg>

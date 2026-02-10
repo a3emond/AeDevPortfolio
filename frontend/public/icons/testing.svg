@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="#d97706"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <!-- Test tube -->
+    <path d="M9 3v10
+           a4 4 0 0 0 8 0V3"/>
+
+    <!-- Test tube liquid -->
+    <path d="M9.5 11
+           C10.5 12.5 12 13 13.5 12
+           C15 11 16.5 11.5 17.5 13"
+          fill="#d97706"
+          fill-opacity="0.2"
+          stroke="none"/>
+
+    <!-- Tube opening -->
+    <line x1="8" y1="3" x2="18" y2="3"/>
+
+    <!-- Checkmark badge -->
+    <circle cx="6.5" cy="17.5" r="3"
+            fill="#d97706"
+            fill-opacity="0.15"/>
+
+    <path d="M5.2 17.5
+           L6.3 18.6
+           L8 16.8"
+          stroke="#d97706"
+          fill="none"/>
+
+</svg>

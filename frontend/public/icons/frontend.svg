@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 24 24"
+     fill="none"
+     stroke="#db2777"
+     stroke-width="1.5"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <!-- Browser window -->
+    <rect x="3" y="5" width="18" height="14" rx="2"
+          fill="#db2777"
+          fill-opacity="0.12"/>
+
+    <!-- Browser top bar -->
+    <line x1="3" y1="9" x2="21" y2="9"/>
+
+    <!-- Window control buttons -->
+    <circle cx="6" cy="7" r="0.6" fill="#db2777" stroke="none"/>
+    <circle cx="8" cy="7" r="0.6" fill="#db2777" stroke="none"/>
+    <circle cx="10" cy="7" r="0.6" fill="#db2777" stroke="none"/>
+
+    <!-- UI layout blocks -->
+    <rect x="6" y="11" width="5" height="3" rx="0.8"/>
+    <rect x="13" y="11" width="5" height="3" rx="0.8"/>
+
+    <!-- Bottom content block -->
+    <rect x="6" y="15.5" width="12" height="2.5" rx="0.8"/>
+
+</svg>

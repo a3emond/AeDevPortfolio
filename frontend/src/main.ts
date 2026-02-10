@@ -2,10 +2,10 @@ import { mount } from "svelte"
 import App from "./App.svelte"
 import { initLanguage } from "./i18n"
 import { initTheme } from "./theme"
+
 import "./styles/app.css"
 import "./styles/skills.css"
-
-
+import "./styles/background.css"
 initTheme()
 initLanguage()
 
@@ -14,4 +14,3 @@ mount(App, {
 })
 
 
-//export default app
