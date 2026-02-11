@@ -6,15 +6,12 @@ on:
       - master
 
 jobs:
-
   deploy:
-
     runs-on: ubuntu-latest
 
     steps:
 
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
 
       - name: Setup Node
@@ -30,47 +27,47 @@ jobs:
           npm run build
 
 
-      - name: Setup SSH key
+      - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/deploy_key
-          chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+          echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -p ${{ secrets.SSH_PORT }} -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
 
 
       - name: Deploy frontend
         run: |
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key" \
+          rsync -rz --delete \
+            -e "ssh -p ${{ secrets.SSH_PORT }} -i ~/.ssh/id_ed25519" \
             frontend/dist/ \
             ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/html/aedev.pro/frontend/
 
 
-      - name: Deploy backend source
+      - name: Deploy backend
         run: |
-          rsync -avz --delete \
-            -e "ssh -i ~/.ssh/deploy_key" \
+          rsync -rz --delete \
+            -e "ssh -p ${{ secrets.SSH_PORT }} -i ~/.ssh/id_ed25519" \
             backend/ \
             ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/html/aedev.pro/backend/
 
 
       - name: Deploy docker-compose.yml
         run: |
-          rsync -avz \
-            -e "ssh -i ~/.ssh/deploy_key" \
+          rsync -rz \
+            -e "ssh -p ${{ secrets.SSH_PORT }} -i ~/.ssh/id_ed25519" \
             docker-compose.yml \
             ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/html/aedev.pro/
 
 
       - name: Deploy .env
         run: |
-          ssh -i ~/.ssh/deploy_key \
+          ssh -p ${{ secrets.SSH_PORT }} -i ~/.ssh/id_ed25519 \
             ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
             "echo '${{ secrets.ENV_FILE }}' > /var/www/html/aedev.pro/.env"
 
 
-      - name: Restart backend container
+      - name: Restart backend
         run: |
-          ssh -i ~/.ssh/deploy_key \
+          ssh -p ${{ secrets.SSH_PORT }} -i ~/.ssh/id_ed25519 \
             ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
             "cd /var/www/html/aedev.pro && docker compose up -d --build"
