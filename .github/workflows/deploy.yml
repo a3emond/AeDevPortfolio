@@ -3,7 +3,7 @@ name: Deploy AEDev Portfolio
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
 
