@@ -23,26 +23,35 @@
 
   let view: View = "overview"
 
-  /* FIX: container must be declared */
   let container: HTMLElement
 
-  function navigate(v: View) {
+  let observer: IntersectionObserver
 
-    view = v
+  function scrollToView(v: View, smooth = true) {
 
     if (!container) return
 
     const target =
             container.querySelector(`#${v}`)
 
-    if (target) {
+    if (!target) return
 
-      target.scrollIntoView({
-        behavior: "smooth",
-        block: "start"
-      })
+    target.scrollIntoView({
+      behavior: smooth ? "smooth" : "auto",
+      block: "start"
+    })
 
-    }
+  }
+
+  function navigate(v: View) {
+
+    if (v === view) return
+
+    view = v
+
+    history.pushState(null, "", "#" + v)
+
+    scrollToView(v, true)
 
   }
 
@@ -55,23 +64,46 @@
     theme = toggleTheme()
   }
 
+  function handlePopState() {
+
+    const hash =
+            location.hash.replace("#", "") as View
+
+    if (!hash) return
+
+    view = hash
+
+    scrollToView(hash, false)
+
+  }
+
   onMount(() => {
 
     if (!container) return
 
-    const observer =
+    observer =
             new IntersectionObserver(
 
                     (entries) => {
 
                       for (const entry of entries) {
 
-                        if (entry.isIntersecting) {
+                        if (!entry.isIntersecting)
+                          continue
 
-                          view =
-                                  entry.target.id as View
+                        const newView =
+                                entry.target.id as View
 
-                        }
+                        if (newView === view)
+                          continue
+
+                        view = newView
+
+                        history.replaceState(
+                                null,
+                                "",
+                                "#" + newView
+                        )
 
                       }
 
@@ -89,6 +121,24 @@
             .forEach(el =>
                     observer.observe(el)
             )
+
+    window.addEventListener(
+            "popstate",
+            handlePopState
+    )
+
+    const initial =
+            location.hash.replace("#", "") as View
+
+    if (initial) {
+
+      view = initial
+
+      requestAnimationFrame(() => {
+        scrollToView(initial, false)
+      })
+
+    }
 
   })
 
