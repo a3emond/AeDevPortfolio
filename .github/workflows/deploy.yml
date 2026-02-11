@@ -33,39 +33,50 @@ jobs:
       - name: Setup SSH
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
+
+          echo "${{ secrets.SERVER_SSH_KEY }}" > ~/.ssh/github_actions_ed25519
+
+          chmod 600 ~/.ssh/github_actions_ed25519
+
           ssh-keyscan -H ${{ secrets.SERVER_HOST }} >> ~/.ssh/known_hosts
+
+          cat >> ~/.ssh/config << EOF
+          Host deploy-server
+            HostName ${{ secrets.SERVER_HOST }}
+            User ${{ secrets.SERVER_USER }}
+            IdentityFile ~/.ssh/github_actions_ed25519
+            StrictHostKeyChecking no
+          EOF
 
 
       - name: Deploy frontend
         run: |
           rsync -avz --delete \
             frontend/dist/ \
-            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/html/aedev.pro/frontend/
+            deploy-server:/var/www/html/aedev.pro/frontend/
 
 
       - name: Deploy backend source
         run: |
           rsync -avz --delete \
             backend/ \
-            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/html/aedev.pro/backend/
+            deploy-server:/var/www/html/aedev.pro/backend/
 
 
       - name: Deploy docker-compose.yml
         run: |
           rsync -avz \
             docker-compose.yml \
-            ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }}:/var/www/html/aedev.pro/
+            deploy-server:/var/www/html/aedev.pro/
 
 
       - name: Deploy .env
         run: |
-          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
+          ssh deploy-server \
             "echo '${{ secrets.ENV_FILE }}' > /var/www/html/aedev.pro/.env"
 
 
       - name: Restart backend container
         run: |
-          ssh ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_HOST }} \
+          ssh deploy-server \
             "cd /var/www/html/aedev.pro && docker compose up -d --build"
