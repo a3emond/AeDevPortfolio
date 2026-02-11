@@ -1,5 +1,7 @@
 <script lang="ts">
     import { t, lang, setLanguage } from "../i18n"
+    import logo from "../assets/logo.png"
+
 
     export let view: string
     export let onNavigate: (view: string) => void
@@ -22,7 +24,8 @@
             aria-label="Home"
             on:click={() => go("overview")}
     >
-        <img src="/src/assets/logo.png" alt="AEDev logo" />
+        <img src={logo} alt="AEDev logo" />
+
     </button>
 
     <!-- Navigation -->
